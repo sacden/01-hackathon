@@ -18,10 +18,11 @@ body {
     position: fixed;
     z-index: 1000;
     width: 150px;
-    background: #1b1a1a;
+    background: #e45c5c;
     border-radius: 5px;
     display: none;
     list-style: none;
+    padding: 10px;
 }
 
 .menu.open {
@@ -39,4 +40,9 @@ body {
 
 .menu .menu-item:hover {
     background: #343434;
+}
+
+li:hover {
+    cursor: pointer;
+    color: green;
 }
