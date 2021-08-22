@@ -1,23 +1,14 @@
-import { Menu } from './core/menu'
-//import { BackgroundModule } from './modules/background.module'
-//import { FigureModule } from './modules/figure.module'
+import { Menu } from "./core/menu";
 
 export class ContextMenu extends Menu {
 	constructor(selector) {
 		super(selector)
-
-		this.modules = [
-			// "Включить слайдер",
-			// "Создать фигуру",
-			// "Кастомное сообщение",
-			// "Собственный модуль",
-		]
-		// this.backgroundModule = new BackgroundModule();
+		this.modules = {}
 		this.add = this.add.bind(this)
 	}
 
 	close() {
-		document.getElementById('menu').style.display = 'none'
+		document.getElementById('menu').style.display = 'none';
 	}
 
 	open(e) {
@@ -32,38 +23,25 @@ export class ContextMenu extends Menu {
 		newmenu.addEventListener('click', e => {
 			let fn = e.target.id
 			this.modules[fn].trigger()
-			// switch (fn) {
-			//   case "0":
-			//     // this.backgroundModule.render();
-			//     break;
-			//   case "1":
-			//     console.log(this.modules[1]);
-			//     break;
-			//   case "2":
-			//     console.log(this.modules[2]);
-			//     break;
-			//   case "3":
-			//     console.log(this.modules[3]);
-			//     break;
-			// }
-
-			// if (e.target.id === "0") {
-			// this.backgroundModule.render();
-			// }
 		})
 	}
 
-	add(text, trigger) {
-		this.modules = [...this.modules, { text, trigger }]
-	}
-	render() {
-		const getMenu = document.querySelector('#menu')
-		const getElements = this.modules.map(
-			(el, index) => `<li class="menu-item" id='${index}'>${el.text}</li>`
-		)
-		getMenu.insertAdjacentHTML('afterbegin', getElements.join(''))
+  add(menuItem) {
+    this.modules = {
+      ...this.modules,
+      [menuItem.type]: menuItem.addItemInMenuList(),
+    }
+  }
+  render() {
 
-		document.onclick = this.close
-		document.oncontextmenu = this.open.bind(this)
-	}
+    const getMenu = document.getElementById("menu");
+    getMenu.innerHTML = "";
+    Object.keys(this.modules).forEach((el) =>
+      getMenu.insertAdjacentHTML("afterbegin", this.modules[el].text())
+
+    );
+
+    document.onclick = this.close;
+    document.oncontextmenu = this.open.bind(this);
+  }
 }

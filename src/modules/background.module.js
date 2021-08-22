@@ -25,16 +25,23 @@ export class BackgroundModule extends Module {
   };
 
   changeImages(pics) {
-    // pics.forEach(function (img) {
-    //   new Image().src = img;
-    // });
+    setInterval(() => this.setImage(pics), 3000);
 
-    setInterval(() => this.setImage(pics), 5000);
+    setTimeout(() => {
+      document.body.addEventListener("click", () => {
+        window.location.reload();
+      });
+    }, 2000);
   }
 
   setImage(pics) {
     let random = randomImages(1, 20);
     document.body.style.backgroundImage = `url(${pics[random].largeImageURL})`;
+    document.body.style.backgroundSize = "cover";
+  }
+
+  addItemInMenuList() {
+    menu.add(`Слайдер`, this.#trigger.bind(this));
   }
 
   #trigger() {
@@ -42,7 +49,15 @@ export class BackgroundModule extends Module {
     this.sendRequest();
     this.toHTML();
   }
+
+  toHTML() {
+    return `<li class="menu-item" data-type="${this.type}">${this.text}</li>`;
+  }
+
   addItemInMenuList() {
-	menu.add(`Случайное фото`, this.#trigger.bind(this))
-}
+    return {
+      text: this.toHTML.bind(this),
+      trigger: this.#trigger.bind(this),
+    };
+  }
 }
