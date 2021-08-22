@@ -69,6 +69,7 @@ export class FigureModule extends Module {
 		}
 		//append the g element to the svg
 		svg.appendChild(g)
+		setInterval(() => svg.innerHTML = '', 5000);
 	}
 
 	#trigger() {
