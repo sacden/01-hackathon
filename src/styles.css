@@ -66,3 +66,8 @@ body {
   opacity: 0.5;
   z-index: 2000;
 }
+
+svg {
+	margin: 10px; 
+	max-width: 60vh;
+}	

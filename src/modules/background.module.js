@@ -1,9 +1,10 @@
-import { Module } from "../core/module";
-import { randomImages } from "../utils";
+import menu from '../app'
+import { Module } from "../core/module"
+import { randomImages } from "../utils"
 
 export class BackgroundModule extends Module {
   constructor(type, text) {
-    super(type, text);
+    super('background', 'случайный фото');
 
     this.word = "nature";
     this.my_key = "22726779-5ea117f2beee7c3a85fd732ea";
@@ -36,9 +37,12 @@ export class BackgroundModule extends Module {
     document.body.style.backgroundImage = `url(${pics[random].largeImageURL})`;
   }
 
-  trigger() {
+  #trigger() {
     // document.body.style.backgroundColor = "red";
     this.sendRequest();
     this.toHTML();
   }
+  addItemInMenuList() {
+	menu.add(`Случайное фото`, this.#trigger.bind(this))
+}
 }
