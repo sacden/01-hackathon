@@ -1,48 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 14px;
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    width: 100%;
-    padding: 2rem;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  height: 100vh;
+  width: 100%;
+
+  background: url("https://pixabay.com/get/gdf08f3311b7285aa9662c607f37e9f58e50b8251fd255ea49eca9f61372be51cfdf749b29248797d828f0adad69f02e1f00588d2e19901319e013979a3218d1d_1280.jpg");
+  background-blend-mode: darken;
+  transition: 3s;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .menu {
-    position: fixed;
-    z-index: 1000;
-    width: 150px;
-    background: #e45c5c;
-    border-radius: 5px;
-    display: none;
-    list-style: none;
-    padding: 10px;
+  position: fixed;
+  z-index: 1000;
+  width: 250px;
+
+  background-color: #f0e9ea;
+  border-radius: 7px;
+  display: none;
+  list-style: none;
+  border: #b9b9b8 1px solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .menu.open {
-    display: block;
+  display: block;
 }
 
 .menu .menu-item {
-    padding: 8px 10px;
-    font-size: 1rem;
-    color: #eee;
-    cursor: pointer;
-    transition: background-color .2s ease-in;
-    border-radius: inherit;
+  padding: 8px 10px;
+  margin: 5px;
+
+  color: #242323;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  border-radius: inherit;
 }
 
 .menu .menu-item:hover {
-    background: #343434;
+  background: #689df8;
+  color: #fff;
 }
 
-li:hover {
-    cursor: pointer;
-    color: green;
+.modalForClick {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background-color: #666666;
+  opacity: 0.5;
+  z-index: 2000;
 }
