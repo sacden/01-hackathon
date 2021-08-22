@@ -29,7 +29,7 @@ export class BackgroundModule extends Module {
     //   new Image().src = img;
     // });
 
-    setInterval(() => this.setImage(pics), 3000);
+    setInterval(() => this.setImage(pics), 5000);
   }
 
   setImage(pics) {
