@@ -12,9 +12,9 @@ import { BackgroundColorModule } from "./modules/backgroundColor.module";
 import { RandomQuote } from "./modules/randomQuote.module";
 
 const menu = new ContextMenu()
-const figureModule = new FigureModule()
-const backgroundColorModule = new BackgroundColorModule()
-const backgroundModule = new BackgroundModule()
+//const figureModule = new FigureModule()
+//const backgroundColorModule = new BackgroundColorModule()
+//const backgroundModule = new BackgroundModule()
 
 const counterClick = new ClicksModule("counterClick", "Аналитика кликов (за 5 секунд)");
 const backgroundModule = new BackgroundModule("startSlider", "Запусить слайдер");

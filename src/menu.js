@@ -26,22 +26,22 @@ export class ContextMenu extends Menu {
 		})
 	}
 
-  add(menuItem) {
-    this.modules = {
-      ...this.modules,
-      [menuItem.type]: menuItem.addItemInMenuList(),
-    }
-  }
-  render() {
+	add(menuItem) {
+		this.modules = {
+			...this.modules,
+			[menuItem.type]: menuItem.addItemInMenuList(),
+		}
+	}
+	render() {
 
-    const getMenu = document.getElementById("menu");
-    getMenu.innerHTML = "";
-    Object.keys(this.modules).forEach((el) =>
-      getMenu.insertAdjacentHTML("afterbegin", this.modules[el].text())
+		const getMenu = document.getElementById("menu");
+		getMenu.innerHTML = "";
+		Object.keys(this.modules).forEach((el) =>
+		getMenu.insertAdjacentHTML("afterbegin", this.modules[el].text())
 
-    );
+		);
 
-    document.onclick = this.close;
-    document.oncontextmenu = this.open.bind(this);
-  }
+		document.onclick = this.close;
+		document.oncontextmenu = this.open.bind(this);
+	}
 }
