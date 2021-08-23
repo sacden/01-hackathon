@@ -21,7 +21,7 @@ export class ContextMenu extends Menu {
 		}
 		let newmenu = document.getElementById('menu')
 		newmenu.addEventListener('click', e => {
-			let fn = e.target.id
+			let fn = e.target.dataset.type
 			this.modules[fn].trigger()
 		})
 	}
